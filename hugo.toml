@@ -1,0 +1,47 @@
+# hugo.toml
+
+baseURL = "https://your-domain.com/"  # Replace with your actual domain later
+languageCode = "en-us"
+title = "Abolfazl Arzandi | Materials Engineer"
+theme = "PaperMod"
+
+[params]
+  ShowShareButtons = false
+  ShowReadingTime = false
+  ShowPostNavLinks = false
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = true
+  defaultTheme = "light" # or "dark"
+
+  [params.profileMode]
+    enabled = true
+    title = "Abolfazl Arzandi"
+    subtitle = "Sophomore Materials & Metallurgy Engineering student at IUST. Passionate about research, continuous learning, and practical experience."
+    imageUrl = "" # You can add a URL to your photo here
+    imageWidth = 120
+    imageHeight = 120
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:arzandi_abolfazl@metaleng.iust.ac.ir"
+  
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://linkedin.com/in/your-username" # Replace with your LinkedIn URL
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/your-username" # Replace with your GitHub URL
+
+
+[menu]
+  [[menu.main]]
+    identifier = "resume"
+    name = "Resume"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "mailto:arzandi_abolfazl@metaleng.iust.ac.ir"
+    weight = 20

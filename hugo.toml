@@ -1,17 +1,23 @@
-# hugo.toml - New configuration for Terminal theme
+# hugo.toml - FINAL CLEAN VERSION
 
-baseURL = "https://your-domain.com/"
+baseURL = "https://your-domain.com/"  # اگر دامنه دارید، آدرسش را اینجا بنویسید
 languageCode = "en-us"
-title = "Abolfazl Arzandi"
-
-# THIS IS THE MOST IMPORTANT PART
-theme = "terminal" 
+title = "Abolfazl Arzandi's Resume"
+theme = "terminal"
 
 [params]
-  # این باعث می شود صفحه اصلی مستقیما محتوای شما را نشان دهد
+  # جایگزینی لوگوی "Terminal" با نام شما
+  logo = "Abolfazl Arzandi"
+
+  # تنظیمات اصلی ظاهر سایت
   contentTypeName = "resume"
-  
-  # حذف بخش‌های اضافی
-  showMenuItems = 2 # 1=hides, 2=shows
+  themeColor = "blue"  # می توانید رنگ را به orange, red, green, blue یا pink تغییر دهید
+  showMenuItems = 1  # 1=hides menu, 2=shows menu
   fullWidthTheme = false
   centerTheme = true
+
+  # این بخش فوتر را به طور کامل حذف می‌کند
+  [params.footer]
+    showCopyright = false
+    showThemeAttribution = false
+    showHackerAttribution = false

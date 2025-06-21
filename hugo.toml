@@ -1,10 +1,10 @@
 # hugo.toml - CORRECTED FOR HUGO MODULES
 
-baseURL = "https://your-domain.com/"  # آدرس دامنه خود را اینجا وارد کنید
+baseURL = "https://your-domain.com/" # Replace with your domain
 languageCode = "en-us"
 title = "Abolfazl Arzandi | Materials Engineer"
 
-# این بخش به هوگو می‌گوید که قالب را به صورت ماژول دانلود کند
+# This block tells Hugo to fetch the theme as a module
 [module]
   [[module.imports]]
     path = "github.com/theNewDynamic/gohugo-theme-ananke"

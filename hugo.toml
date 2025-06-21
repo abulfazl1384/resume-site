@@ -1,25 +1,17 @@
-# hugo.toml - CORRECTED FOR HUGO MODULES
+# hugo.toml - New configuration for Terminal theme
 
-baseURL = "https://your-domain.com/" # Replace with your domain
+baseURL = "https://your-domain.com/"
 languageCode = "en-us"
-title = "Abolfazl Arzandi | Materials Engineer"
+title = "Abolfazl Arzandi"
 
-# This block tells Hugo to fetch the theme as a module
-[module]
-  [[module.imports]]
-    path = "github.com/theNewDynamic/gohugo-theme-ananke"
+# THIS IS THE MOST IMPORTANT PART
+theme = "terminal" 
 
 [params]
-  description = "Sophomore Materials & Metallurgy Engineering student at IUST. Passionate about research, continuous learning, and practical experience."
-  favicon = ""
-  site_logo = ""
+  # این باعث می شود صفحه اصلی مستقیما محتوای شما را نشان دهد
+  contentTypeName = "resume"
   
-  [[params.social]]
-    name = "linkedin"
-    url = "https://linkedin.com/in/your-username"
-  [[params.social]]
-    name = "github"
-    url = "https://github.com/your-username"
-  [[params.social]]
-    name = "envelope-o"
-    url = "mailto:arzandi_abolfazl@metaleng.iust.ac.ir"
+  # حذف بخش‌های اضافی
+  showMenuItems = 2 # 1=hides, 2=shows
+  fullWidthTheme = false
+  centerTheme = true

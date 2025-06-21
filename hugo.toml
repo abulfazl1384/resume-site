@@ -1,20 +1,19 @@
-# hugo.toml - Updated for Ananke Theme
+# hugo.toml - CORRECTED FOR HUGO MODULES
 
 baseURL = "https://your-domain.com/"  # آدرس دامنه خود را اینجا وارد کنید
 languageCode = "en-us"
 title = "Abolfazl Arzandi | Materials Engineer"
-theme = "ananke" # <<<< نام قالب به ananke تغییر کرد
+
+# این بخش به هوگو می‌گوید که قالب را به صورت ماژول دانلود کند
+[module]
+  [[module.imports]]
+    path = "github.com/theNewDynamic/gohugo-theme-ananke"
 
 [params]
-  # متن اصلی در بالای صفحه
   description = "Sophomore Materials & Metallurgy Engineering student at IUST. Passionate about research, continuous learning, and practical experience."
-  
-  # اطلاعات تماس در فوتر (پایین صفحه)
   favicon = ""
-  site_logo = "" # می‌توانید لینک لوگو یا عکس خود را اینجا قرار دهید
+  site_logo = ""
   
-  # اطلاعات شبکه های اجتماعی
-  # نام هر فایل باید آیکون مربوط به آن در FontAwesome باشد
   [[params.social]]
     name = "linkedin"
     url = "https://linkedin.com/in/your-username"
@@ -22,5 +21,5 @@ theme = "ananke" # <<<< نام قالب به ananke تغییر کرد
     name = "github"
     url = "https://github.com/your-username"
   [[params.social]]
-    name = "envelope-o" # آیکون ایمیل
+    name = "envelope-o"
     url = "mailto:arzandi_abolfazl@metaleng.iust.ac.ir"

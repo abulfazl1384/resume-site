@@ -1,6 +1,6 @@
 # hugo.toml - NEW & MODERN CONFIGURATION for PaperMod Theme
 
-baseURL = "https://your-domain.com/" # آدرس دامنه خود را اینجا بنویسید
+baseURL = "http://abulfazlarzandi.ir/" # آدرس دامنه خود را اینجا بنویسید
 languageCode = "en-us"
 title = "Abolfazl Arzandi"
 paginate = 5

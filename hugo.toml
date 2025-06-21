@@ -1,36 +1,26 @@
-# hugo.toml - FINAL & PERFECTED for BLOWFISH THEME
+# hugo.toml - SIMPLIFIED MANUAL THEME CONFIG
 
-baseURL = "http://abulfazlarzandi.ir/"  # لطفاً آدرس دامنه خود را اینجا وارد کنید
+baseURL = "http://abulfazlarzandi.ir/"
 languageCode = "en-us"
 title = "Abolfazl Arzandi"
 copyright = "© 2024 Abolfazl Arzandi"
 
-# این بخش قالب Blowfish را به صورت ماژول نصب می‌کند
-[module]
-  [module.hugoVersion]
-    extended = true
-    min = "0.111.0"
-  [[module.imports]]
-    path = "github.com/nunocoracao/blowfish"
+# به جای ماژول، به صورت دستی به قالب اشاره می‌کنیم
+theme = "blowfish" 
 
-# ======================================================
-# این مهم‌ترین بخش برای نمایش رزومه شما در مرکز صفحه است
-# ======================================================
+# این بخش‌ها برای نمایش صحیح رزومه هنوز لازم هستند
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   page = ["HTML"]
 
 [markup.goldmark.renderer]
-  unsafe = true # لازم برای رندر کردن HTML در markdown
+  unsafe = true
 
 [params]
-  # تنظیمات کلی ظاهر
-  mainSections = ["posts"]
   author = "Abolfazl Arzandi"
-  colorScheme = "blowfish" # حالت پیش‌فرض، می‌توانید به dark یا light تغییر دهید
+  colorScheme = "blowfish"
   description = "Materials & Metallurgy Engineering Student | Passionate about Research & Technology"
-
-  # لینک شبکه‌های اجتماعی
+  
   [[params.social]]
     name = "LinkedIn"
     url = "https://linkedin.com/in/your-username"
@@ -40,11 +30,3 @@ copyright = "© 2024 Abolfazl Arzandi"
   [[params.social]]
     name = "Email"
     url = "mailto:arzandi_abolfazl@metaleng.iust.ac.ir"
-
-# منو را خالی می گذاریم تا ظاهری کاملاً مینیمال داشته باشد
-[menu]
-  [[menu.main]]
-
-# تنظیمات مربوط به طرح‌بندی (Layout)
-[per-section]
-  posts = "single"

@@ -1,25 +1,70 @@
-# hugo.toml - THE CORRECT AND FINAL VERSION for Terminal Theme
+# hugo.toml - NEW & MODERN CONFIGURATION for PaperMod Theme
 
-baseURL = "https://your-domain.com/"
+baseURL = "https://your-domain.com/" # آدرس دامنه خود را اینجا بنویسید
 languageCode = "en-us"
-title = "Abolfazl Arzandi's Resume"
-theme = "terminal"
+title = "Abolfazl Arzandi"
+paginate = 5
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+# این بخش به هوگو می‌گوید که PaperMod را به صورت ماژول نصب کند
+[module]
+  [[module.imports]]
+    path = "github.com/adityatelange/hugo-PaperMod"
 
 [params]
-  contentTypeName = "resume"
-  themeColor = "blue"
-  showMenuItems = 1
-  fullWidthTheme = false
-  centerTheme = true
+  env = "production"
+  defaultTheme = "auto" # حالت پیش فرض (auto, light, dark)
+  ShowShareButtons = false
+  ShowReadingTime = false
+  ShowPostNavLinks = false
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = false
+  UseHugoToc = true
+  disableSpecial1stPost = true
+  disableScrollToTop = false
+  comments = false
+  hidemeta = true
+  hideSummary = true
 
-  # این ساختار صحیح لوگو است که قالب انتظار دارد
-  # به جای یک متن ساده، یک "جدول" از پارامترهاست
-  [params.logo]
-    logoText = "Abolfazl Arzandi"
-    logoHomeLink = "/"
+  # این بخش اطلاعات پروفایل شما را در بالای صفحه نشان می‌دهد
+  [params.profileMode]
+    enabled = true
+    title = "Abolfazl Arzandi"
+    subtitle = "Materials & Metallurgy Engineering Student | Passionate about Research & Technology"
+    imageUrl = "" # می‌توانید لینک عکس خود را اینجا قرار دهید (اختیاری)
+    imageWidth = 120
+    imageHeight = 120
+    
+  # لینک شبکه‌های اجتماعی
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://linkedin.com/in/your-username"
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/your-username"
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:arzandi_abolfazl@metaleng.iust.ac.ir"
 
-  # این بخش فوتر را به طور کامل و به روش صحیح حذف می‌کند
-  [params.footer]
-    showCopyright = false
-    showThemeAttribution = false
-    showHackerAttribution = false
+# منوهای بالای صفحه
+[menu]
+  [[menu.main]]
+    identifier = "resume"
+    name = "Resume"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "mailto:arzandi_abolfazl@metaleng.iust.ac.ir"
+    weight = 20
+
+# محتوای اصلی سایت را فقط از ریشه (/) بخواند
+[outputs]
+  home = ["HTML", "RSS", "JSON"] # برای عملکرد بهتر تم لازم است

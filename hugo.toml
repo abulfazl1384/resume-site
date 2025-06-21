@@ -1,70 +1,50 @@
-# hugo.toml - NEW & MODERN CONFIGURATION for PaperMod Theme
+# hugo.toml - FINAL & PERFECTED for BLOWFISH THEME
 
-baseURL = "http://abulfazlarzandi.ir/" # آدرس دامنه خود را اینجا بنویسید
+baseURL = "http://abulfazlarzandi.ir/"  # لطفاً آدرس دامنه خود را اینجا وارد کنید
 languageCode = "en-us"
 title = "Abolfazl Arzandi"
-paginate = 5
+copyright = "© 2024 Abolfazl Arzandi"
 
-enableRobotsTXT = true
-buildDrafts = false
-buildFuture = false
-buildExpired = false
-
-# این بخش به هوگو می‌گوید که PaperMod را به صورت ماژول نصب کند
+# این بخش قالب Blowfish را به صورت ماژول نصب می‌کند
 [module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.111.0"
   [[module.imports]]
-    path = "github.com/adityatelange/hugo-PaperMod"
+    path = "github.com/nunocoracao/blowfish"
+
+# ======================================================
+# این مهم‌ترین بخش برای نمایش رزومه شما در مرکز صفحه است
+# ======================================================
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+
+[markup.goldmark.renderer]
+  unsafe = true # لازم برای رندر کردن HTML در markdown
 
 [params]
-  env = "production"
-  defaultTheme = "auto" # حالت پیش فرض (auto, light, dark)
-  ShowShareButtons = false
-  ShowReadingTime = false
-  ShowPostNavLinks = false
-  ShowBreadCrumbs = false
-  ShowCodeCopyButtons = true
-  ShowWordCount = false
-  ShowRssButtonInSectionTermList = false
-  UseHugoToc = true
-  disableSpecial1stPost = true
-  disableScrollToTop = false
-  comments = false
-  hidemeta = true
-  hideSummary = true
+  # تنظیمات کلی ظاهر
+  mainSections = ["posts"]
+  author = "Abolfazl Arzandi"
+  colorScheme = "blowfish" # حالت پیش‌فرض، می‌توانید به dark یا light تغییر دهید
+  description = "Materials & Metallurgy Engineering Student | Passionate about Research & Technology"
 
-  # این بخش اطلاعات پروفایل شما را در بالای صفحه نشان می‌دهد
-  [params.profileMode]
-    enabled = true
-    title = "Abolfazl Arzandi"
-    subtitle = "Materials & Metallurgy Engineering Student | Passionate about Research & Technology"
-    imageUrl = "" # می‌توانید لینک عکس خود را اینجا قرار دهید (اختیاری)
-    imageWidth = 120
-    imageHeight = 120
-    
   # لینک شبکه‌های اجتماعی
-  [[params.socialIcons]]
-    name = "linkedin"
+  [[params.social]]
+    name = "LinkedIn"
     url = "https://linkedin.com/in/your-username"
-  [[params.socialIcons]]
-    name = "github"
+  [[params.social]]
+    name = "GitHub"
     url = "https://github.com/your-username"
-  [[params.socialIcons]]
-    name = "email"
+  [[params.social]]
+    name = "Email"
     url = "mailto:arzandi_abolfazl@metaleng.iust.ac.ir"
 
-# منوهای بالای صفحه
+# منو را خالی می گذاریم تا ظاهری کاملاً مینیمال داشته باشد
 [menu]
   [[menu.main]]
-    identifier = "resume"
-    name = "Resume"
-    url = "/"
-    weight = 10
-  [[menu.main]]
-    identifier = "contact"
-    name = "Contact"
-    url = "mailto:arzandi_abolfazl@metaleng.iust.ac.ir"
-    weight = 20
 
-# محتوای اصلی سایت را فقط از ریشه (/) بخواند
-[outputs]
-  home = ["HTML", "RSS", "JSON"] # برای عملکرد بهتر تم لازم است
+# تنظیمات مربوط به طرح‌بندی (Layout)
+[per-section]
+  posts = "single"

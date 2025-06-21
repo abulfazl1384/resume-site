@@ -1,47 +1,26 @@
-# hugo.toml
+# hugo.toml - Updated for Ananke Theme
 
-baseURL = "https://your-domain.com/"  # Replace with your actual domain later
+baseURL = "https://your-domain.com/"  # آدرس دامنه خود را اینجا وارد کنید
 languageCode = "en-us"
 title = "Abolfazl Arzandi | Materials Engineer"
-theme = "PaperMod"
+theme = "ananke" # <<<< نام قالب به ananke تغییر کرد
 
 [params]
-  ShowShareButtons = false
-  ShowReadingTime = false
-  ShowPostNavLinks = false
-  ShowBreadCrumbs = false
-  ShowCodeCopyButtons = true
-  defaultTheme = "light" # or "dark"
-
-  [params.profileMode]
-    enabled = true
-    title = "Abolfazl Arzandi"
-    subtitle = "Sophomore Materials & Metallurgy Engineering student at IUST. Passionate about research, continuous learning, and practical experience."
-    imageUrl = "" # You can add a URL to your photo here
-    imageWidth = 120
-    imageHeight = 120
-
-  [[params.socialIcons]]
-    name = "email"
-    url = "mailto:arzandi_abolfazl@metaleng.iust.ac.ir"
+  # متن اصلی در بالای صفحه
+  description = "Sophomore Materials & Metallurgy Engineering student at IUST. Passionate about research, continuous learning, and practical experience."
   
-  [[params.socialIcons]]
+  # اطلاعات تماس در فوتر (پایین صفحه)
+  favicon = ""
+  site_logo = "" # می‌توانید لینک لوگو یا عکس خود را اینجا قرار دهید
+  
+  # اطلاعات شبکه های اجتماعی
+  # نام هر فایل باید آیکون مربوط به آن در FontAwesome باشد
+  [[params.social]]
     name = "linkedin"
-    url = "https://linkedin.com/in/your-username" # Replace with your LinkedIn URL
-
-  [[params.socialIcons]]
+    url = "https://linkedin.com/in/your-username"
+  [[params.social]]
     name = "github"
-    url = "https://github.com/your-username" # Replace with your GitHub URL
-
-
-[menu]
-  [[menu.main]]
-    identifier = "resume"
-    name = "Resume"
-    url = "/"
-    weight = 10
-  [[menu.main]]
-    identifier = "contact"
-    name = "Contact"
+    url = "https://github.com/your-username"
+  [[params.social]]
+    name = "envelope-o" # آیکون ایمیل
     url = "mailto:arzandi_abolfazl@metaleng.iust.ac.ir"
-    weight = 20

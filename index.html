@@ -1,178 +1,302 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abolfazl Arzandi | About Me</title>
+    <title>Abolfazl Arzandi | CV</title>
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
-        /* --- TOKYO NIGHT THEME --- */
+        /* --- DIY HTML CV Template by SRT --- */
         :root {
-            --font-en: 'Inter', sans-serif;
-            
-            --bg: #1a1b26;
-            --surface: #24283b;
-            --overlay: rgba(36, 40, 59, 0.7);
-            --text-primary: #c0caf5;
-            --text-secondary: #a9b1d6;
-            --heading: #c0caf5;
-            --accent: #7aa2f7;
-            --border: #414868;
+            --primary-color: #2c3e50; /* A dark slate blue */
+            --secondary-color: #34495e; /* A slightly lighter slate */
+            --background-color: #ecf0f1; /* A light grey */
+            --main-text-color: #333;
+            --sidebar-text-color: #ecf0f1;
+            --accent-color: #3498db; /* A bright blue */
+            --container-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        html { scroll-behavior: smooth; }
-
-        body {
+        * {
             margin: 0;
             padding: 0;
-            background-color: var(--bg);
-            color: var(--text-primary);
-            font-family: var(--font-en);
-            padding-bottom: 5rem;
+            box-sizing: border-box;
         }
 
-        #tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--background-color);
+            color: var(--main-text-color);
+            line-height: 1.6;
+        }
 
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 6rem 1.5rem 2rem 1.5rem;
+        .resume-container {
+            max-width: 960px;
+            margin: 2rem auto;
+            display: flex;
+            background-color: #fff;
+            box-shadow: var(--container-shadow);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* --- SIDEBAR (LEFT COLUMN) --- */
+        .sidebar {
+            background-color: var(--primary-color);
+            color: var(--sidebar-text-color);
+            padding: 2.5rem 1.5rem;
+            width: 35%;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 2.5rem;
+        }
+        
+        .profile-header { text-align: center; }
+
+        .profile-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.25rem;
         }
 
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3 { font-weight: 700; color: var(--heading); }
-        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .tagline { font-size: 1.2rem; color: var(--accent); margin: 0 0 1.5rem 0; font-weight: 500; }
-        h2 {
+        .profile-header .job-title {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--accent-color);
+        }
+        
+        .sidebar-section h2 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .contact-list, .skills-list, .languages-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-list li, .skills-list li, .languages-list li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .contact-list a {
+            color: var(--sidebar-text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-list a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-list i {
+            width: 20px;
+            text-align: center;
+            color: var(--accent-color);
+        }
+        
+        .skills-list strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #bdc3c7;
+        }
+
+        .skills-list ul {
+            list-style-type: '» ';
+            padding-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- MAIN CONTENT (RIGHT COLUMN) --- */
+        .main-content {
+            padding: 2.5rem;
+            width: 65%;
+        }
+
+        .main-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .main-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .main-section h2 {
             font-size: 1.5rem;
-            padding-bottom: 0.75rem;
-            margin: 0 0 1.5rem 0;
-            border-bottom: 2px solid var(--border);
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
-        h3 { font-size: 1.1rem; margin: 1rem 0 0.5rem 0; color: var(--accent); }
-        p, li { line-height: 1.8; font-size: 1rem; color: var(--text-secondary); }
-        ul { margin: 0; padding: 0 0 0 20px; list-style-type: '» '; }
-        strong { color: var(--heading); font-weight: 600; }
-
-        /* --- CARD COMPONENT --- */
-        .card {
-            background-color: var(--overlay);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+        
+        .main-section h2 i {
+            color: var(--accent-color);
         }
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* The timeline vertical line */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--background-color);
+        }
+        
+        /* The timeline circle */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 2px solid #fff;
+            z-index: 1;
+        }
+        
+        .timeline-item h3 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.2rem;
+        }
+        
+        .item-meta {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-item ul {
+            padding-left: 20px;
+            color: #555;
+        }
+        
+        .timeline-item ul li {
+             margin-bottom: 0.25rem;
         }
 
-        /* --- SPECIFIC LAYOUTS --- */
-        .grid-container, .skills-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-        @media (min-width: 768px) { .grid-container, .skills-grid { grid-template-columns: 1fr 1fr; } }
-
-        /* --- FOOTER --- */
-        footer { padding: 2rem 1.5rem; text-align: center; }
-        .footer-links { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
-        .footer-link { color: var(--text-secondary); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s ease; }
-        .footer-link:hover { color: var(--accent); }
-        .footer-link svg { width: 24px; height: 24px; fill: currentColor; }
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            .resume-container {
+                flex-direction: column;
+                margin: 1rem;
+            }
+            .sidebar, .main-content {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-    <div id="tsparticles"></div>
-    
-    <main>
-        <!-- Intro Section -->
-        <section class="card" id="intro">
-            <h1>Abolfazl Arzandi</h1>
-            <p class="tagline">My Vision & Purpose in Materials Engineering</p>
-            <p>My journey into Materials Engineering, initially an unforeseen academic turn at Iran University of Science and Technology, has profoundly shaped my scientific identity. What began as a mere choice progressively evolved into a profound passion. Now, with a solid foundation and heightened motivation, I am eager to transcend theoretical knowledge and actively contribute to cutting-edge research.</p>
-        </section>
 
-        <!-- Experience & Education Section -->
-        <section class="card" id="cv">
-            <div class="grid-container">
-                <div class="grid-item">
-                    <h2>Experience</h2>
-                    <h3>Shatel Group — <i>Technical Support Intern</i></h3>
+    <div class="resume-container">
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="sidebar">
+            <div class="profile-header">
+                <h1>Abolfazl Arzandi</h1>
+                <p class="job-title">Materials and Metallurgy Engineering Student</p>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2><i class="fa-solid fa-address-book"></i> Contact</h2>
+                <ul class="contact-list">
+                    <li><a href="mailto:arzandi_abolfazl@metaleng.iust.ac.ir" title="Email"><i class="fa-solid fa-envelope"></i><span>arzandi_abolfazl @metaleng.iust.ac.ir</span></a></li>
+                    <li><a href="tel:+989223489668" title="Call"><i class="fa-solid fa-phone"></i><span>+98 922 348 9668</span></a></li>
+                    <li><a href="https://linkedin.com/in/abolfazl" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i><span>linkedin.com/in/abolfazl</span></a></li>
+                    <li><a href="https://blog.abolfazlarzandi.ir" target="_blank" rel="noopener" title="Blog"><i class="fa-solid fa-blog"></i><span>blog.abolfazlarzandi.ir</span></a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2><i class="fa-solid fa-cogs"></i> Skills</h2>
+                <ul class="skills-list">
+                    <li>
+                        <strong>Software</strong>
+                        <ul>
+                            <li>Proficient: MS Office, XMind</li>
+                            <li>Intermediate: WordPress, Materialise Magics</li>
+                            <li>Basic: SIMULIA, SolidWorks, CSViewer</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Programming</strong>
+                        <ul>
+                            <li>Python (Intermediate)</li>
+                            <li>Assembly (Intermediate)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2><i class="fa-solid fa-language"></i> Languages</h2>
+                <ul class="languages-list">
+                    <li><strong>Persian:</strong> Native</li>
+                    <li><strong>English:</strong> B1 (Intermediate)</li>
+                </ul>
+            </div>
+
+        </aside>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="main-content">
+            <section class="main-section" id="profile">
+                <h2><i class="fa-solid fa-user"></i> Profile</h2>
+                <p><strong>My Vision & Purpose in Materials Engineering</strong></p>
+                <p>My journey into Materials Engineering, initially an unforeseen academic turn at Iran University of Science and Technology, has profoundly shaped my scientific identity. What began as a mere choice progressively evolved into a profound passion. Now, with a solid foundation and heightened motivation, I am eager to transcend theoretical knowledge and actively contribute to cutting-edge research.</p>
+            </section>
+
+            <section class="main-section" id="experience">
+                <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
+                <div class="timeline-item">
+                    <h3>Technical Support Intern</h3>
+                    <p class="item-meta">Shatel Group</p>
                     <ul>
                         <li>Provided Level 1 technical support for high-speed internet services.</li>
                         <li>Troubleshot common connectivity issues and modem configurations.</li>
                         <li>Collaborated with senior teams to resolve complex problems.</li>
                     </ul>
                 </div>
-                <div class="grid-item">
-                    <h2>Education</h2>
-                    <h3>Iran University of Science and Technology (IUST)</h3>
-                    <p>
-                        <i>B.Sc. in Materials and Metallurgy Engineering</i><br>
-                        Expected May 2027 | GPA: 2.96 / 4.00
-                    </p>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Skills Section -->
-        <section class="card" id="skills">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div>
-                    <h3>Software</h3>
-                    <ul>
-                        <li><strong>Proficient:</strong> Microsoft Office Suite, XMind</li>
-                        <li><strong>Intermediate:</strong> WordPress, Materialise Magics</li>
-                        <li><strong>Basic:</strong> SIMULIA, SolidWorks, CSViewer</li>
-                    </ul>
+            <section class="main-section" id="education">
+                <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+                <div class="timeline-item">
+                    <h3>B.Sc. in Materials and Metallurgy Engineering</h3>
+                    <p class="item-meta">Iran University of Science and Technology (IUST)</p>
+                    <p>Expected Graduation: May 2027 | Current GPA: 2.96 / 4.00</p>
                 </div>
-                <div>
-                    <h3>Code & Language</h3>
-                    <ul>
-                        <li><strong>Programming:</strong> Python, Assembly (Intermediate)</li>
-                        <li><strong>Languages:</strong> Persian (Native), English (B1)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
+    </div>
 
-    <footer>
-        <div class="footer-links">
-             <a href="mailto:arzandi_abolfazl@metaleng.iust.ac.ir" class="footer-link" title="Email"><svg viewBox="0 0 24 24"><path d="M20,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M20,8l-8,5L4,8V6l8,5l8-5V8z"/></svg><span>Email</span></a>
-             <a href="tel:+989223489668" class="footer-link" title="Call"><svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg><span>Call</span></a>
-             <a href="https://linkedin.com/in/abolfazl" target="_blank" rel="noopener" class="footer-link" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19,3H5C3.89,3 3,3.89 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.89 20.1,3 19,3M8.5,18H5.5V10H8.5V18M7,8.5C6.17,8.5 5.5,7.83 5.5,7C5.5,6.17 6.17,5.5 7,5.5C7.83,5.5 8.5,6.17 8.5,7C8.5,7.83 7.83,8.5 7,8.5M18,18H15V13.5C15,12.57 14.53,12 13.5,12C12.5,12 12,12.62 12,13.5V18H9V10H12V11.25C12.44,10.42 13.43,10 14.5,10C16.5,10 18,11.25 18,13.25V18Z"/></svg><span>LinkedIn</span></a>
-             <a href="https://blog.abolfazlarzandi.ir" target="_blank" rel="noopener" class="footer-link" title="Blog"><svg viewBox="0 0 24 24"><path d="M4 6H20V8H4V6M4 11H20V13H4V11M4 16H20V18H4V16Z"/></svg><span>Blog</span></a>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- tsParticles Configuration ---
-            tsParticles.load("tsparticles", {
-                fpsLimit: 60,
-                background: { color: "transparent" },
-                particles: {
-                    number: { value: 50, density: { enable: true, value_area: 800 } },
-                    color: { value: "#414868" }, // Particle color from theme
-                    opacity: { value: 0.5, random: true },
-                    size: { value: 1.5, random: true },
-                    links: { enable: true, distance: 150, color: "#414868", opacity: 0.4, width: 1 },
-                    move: { enable: true, speed: 1, direction: "none", outModes: { default: "out" } }
-                },
-                interactivity: { events: { onHover: { enable: true, mode: "grab" } } },
-                detectRetina: true,
-            });
-        });
-    </script>
 </body>
 </html>

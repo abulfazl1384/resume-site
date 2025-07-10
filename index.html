@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abolfazl Arzandi | CV</title>
+    <title>Abolfazl Arzandi | Portfolio</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* --- DIY HTML CV Template by SRT --- */
         :root {
-            --primary-color: #2c3e50; /* A dark slate blue */
-            --secondary-color: #34495e; /* A slightly lighter slate */
-            --background-color: #ecf0f1; /* A light grey */
-            --main-text-color: #333;
-            --sidebar-text-color: #ecf0f1;
-            --accent-color: #3498db; /* A bright blue */
-            --container-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --primary-bg-color: #1a1b26; /* A very dark, slightly blue black */
+            --secondary-bg-color: #24283b; /* A lighter dark blue for content sections */
+            --text-color: #c0caf5; /* A light, soft blue-white for text */
+            --heading-color: #ffffff;
+            --accent-color: #7aa2f7; /* A bright, friendly blue */
+            --accent-color-hover: #a9b1d6;
+            --overlay-color: rgba(26, 27, 38, 0.75); /* Overlay to darken the background image */
         }
 
         * {
@@ -31,251 +30,438 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Lato', sans-serif;
-            background-color: var(--background-color);
-            color: var(--main-text-color);
-            line-height: 1.6;
+            background-color: var(--primary-bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
         }
 
-        .resume-container {
-            max-width: 960px;
-            margin: 2rem auto;
-            display: flex;
-            background-color: #fff;
-            box-shadow: var(--container-shadow);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        /* --- SIDEBAR (LEFT COLUMN) --- */
-        .sidebar {
-            background-color: var(--primary-color);
-            color: var(--sidebar-text-color);
-            padding: 2.5rem 1.5rem;
-            width: 35%;
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
-        
-        .profile-header { text-align: center; }
-
-        .profile-header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .profile-header .job-title {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--accent-color);
-        }
-        
-        .sidebar-section h2 {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--accent-color);
-        }
-
-        .contact-list, .skills-list, .languages-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .contact-list li, .skills-list li, .languages-list li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .contact-list a {
-            color: var(--sidebar-text-color);
-            text-decoration: none;
+        /* --- HERO SECTION (The main landing screen) --- */
+        .hero {
+            height: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            justify-content: center;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+
+            /* --- BACKGROUND IMAGE --- */
+            /* --- REPLACE THE URL with your desired background image! --- */
+            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Creates a parallax-like effect */
+        }
+        
+        .hero-content {
+            max-width: 960px;
+            width: 90%;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero p.intro-line {
+            color: var(--accent-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* The little red line from the example */
+        .hero p.intro-line::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            width: 20px;
+            height: 2px;
+            background-color: var(--accent-color);
+            transform: translateY(-50%);
+        }
+
+        .hero h1 {
+            color: var(--heading-color);
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--primary-bg-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color-hover);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--accent-color);
+            color: var(--heading-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-bg-color);
+        }
+
+
+        /* --- TOP NAVIGATION & SIDE LINKS --- */
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 3rem;
+            z-index: 10;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--heading-color);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
             transition: color 0.3s ease;
         }
 
-        .contact-list a:hover {
+        .nav-links a:hover {
             color: var(--accent-color);
         }
 
-        .contact-list i {
-            width: 20px;
-            text-align: center;
+        .social-links {
+            position: absolute;
+            right: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 10;
+        }
+
+        .social-links a {
+            color: var(--heading-color);
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
             color: var(--accent-color);
         }
-        
-        .skills-list strong {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #bdc3c7;
+
+        /* --- SCROLL INDICATOR --- */
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 3rem;
+            z-index: 10;
+            color: var(--heading-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
         }
 
-        .skills-list ul {
-            list-style-type: '» ';
-            padding-left: 20px;
-            font-size: 0.9rem;
+        .scroll-down i {
+            margin-left: 0.5rem;
+            animation: bounce 2s infinite;
         }
 
-        /* --- MAIN CONTENT (RIGHT COLUMN) --- */
-        .main-content {
-            padding: 2.5rem;
-            width: 65%;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px);
+            }
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+
+
+        /* --- RESTYLED CV CONTENT AREA --- */
+        .cv-content {
+            padding: 6rem 2rem;
+            max-width: 960px;
+            margin: 0 auto;
         }
 
         .main-section {
-            margin-bottom: 2.5rem;
-        }
-        
-        .main-section:last-child {
-            margin-bottom: 0;
+            margin-bottom: 5rem;
         }
 
         .main-section h2 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid var(--secondary-color);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            font-size: 2.5rem;
+            color: var(--heading-color);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
         }
-        
-        .main-section h2 i {
-            color: var(--accent-color);
+
+        .main-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
         }
-        
+
+        /* --- Profile/About section --- */
+        #about p {
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Timeline (Experience & Education) --- */
         .timeline-item {
             position: relative;
             padding-left: 2rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-left: 2px solid #33374f; /* The timeline vertical line */
         }
         
-        /* The timeline vertical line */
+        .timeline-item:last-child {
+             border-left: 2px solid transparent;
+        }
+
+        /* The timeline circle */
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: 5px;
+            left: -9px; /* Adjust to center on the line */
             top: 5px;
-            bottom: 0;
-            width: 2px;
-            background-color: var(--background-color);
-        }
-        
-        /* The timeline circle */
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 5px;
-            width: 12px;
-            height: 12px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
             background-color: var(--accent-color);
-            border: 2px solid #fff;
-            z-index: 1;
+            border: 2px solid var(--primary-bg-color);
         }
-        
+
         .timeline-item h3 {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
+            font-size: 1.3rem;
+            color: var(--accent-color);
             margin-bottom: 0.2rem;
         }
         
         .item-meta {
             font-style: italic;
-            color: #7f8c8d;
-            margin-bottom: 0.5rem;
+            color: var(--accent-color-hover);
+            margin-bottom: 0.75rem;
             font-size: 0.9rem;
         }
         
         .timeline-item ul {
-            padding-left: 20px;
-            color: #555;
+            list-style: none;
+            padding-left: 0;
         }
         
         .timeline-item ul li {
-             margin-bottom: 0.25rem;
+             margin-bottom: 0.5rem;
+             position: relative;
+             padding-left: 1.2rem;
+        }
+        
+        .timeline-item ul li::before{
+            content: '»';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        /* --- Skills and Languages --- */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .skill-category h3 {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .skills-container ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .skills-container li {
+            background-color: var(--secondary-bg-color);
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .skills-container li:hover {
+            transform: scale(1.05);
+        }
+
+        .skills-container strong {
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+
+
+        /* --- Contact Footer --- */
+        footer {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            background-color: var(--secondary-bg-color);
+        }
+        footer h2 {
+            margin-bottom: 2rem;
+        }
+        .footer-contact-list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-contact-list a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-contact-list i {
+            margin-right: 0.5rem;
+            color: var(--accent-color);
         }
 
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
-            .resume-container {
+            nav {
                 flex-direction: column;
-                margin: 1rem;
+                padding: 1rem;
+                gap: 1rem;
             }
-            .sidebar, .main-content {
-                width: 100%;
+            .social-links { display: none; } /* Hide on mobile for cleaner look */
+            .scroll-down { left: 1.5rem; }
+
+            .hero h1 { font-size: 2.5rem; }
+            .hero-content {
+                width: 90%;
+                text-align: center;
             }
+            .hero p.intro-line::before { display: none; }
+            .hero-buttons { justify-content: center; }
+
+            .cv-content { padding: 4rem 1rem; }
+            .main-section h2 { font-size: 2rem; }
         }
+
     </style>
 </head>
 <body>
 
-    <div class="resume-container">
-        <!-- ===== SIDEBAR ===== -->
-        <aside class="sidebar">
-            <div class="profile-header">
-                <h1>Abolfazl Arzandi</h1>
-                <p class="job-title">Materials science and Engineering Student</p>
+    <!-- ==================== HERO SECTION ==================== -->
+    <header class="hero">
+        <nav>
+            <a href="#" class="logo">A.A.</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-content">
+            <p class="intro-line">Hello There</p>
+            <h1>I am Abolfazl Arzandi. <br> A Materials Science and Engineering Student.</h1>
+            <div class="hero-buttons">
+                <a href="#experience" class="btn btn-primary">My Experience</a>
+                <a href="#about" class="btn btn-secondary">More About Me</a>
             </div>
-            
-            <div class="sidebar-section">
-                <h2><i class="fa-solid fa-address-book"></i> Contact</h2>
-                <ul class="contact-list">
-                    <li><a href="mailto:arzandi_abolfazl@metaleng.iust.ac.ir" title="Email"><i class="fa-solid fa-envelope"></i><span>arzandi_abolfazl @metaleng.iust.ac.ir</span></a></li>
-                    <li><a href="tel:+989223489668" title="Call"><i class="fa-solid fa-phone"></i><span>+98 922 348 9668</span></a></li>
-                    <li><a href="https://linkedin.com/in/abolfazl" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i><span>linkedin.com/in/abolfazl</span></a></li>
-                    <li><a href="https://blog.abolfazlarzandi.ir" target="_blank" rel="noopener" title="Blog"><i class="fa-solid fa-blog"></i><span>blog.abolfazlarzandi.ir</span></a></li>
-                </ul>
-            </div>
+        </div>
 
-            <div class="sidebar-section">
-                <h2><i class="fa-solid fa-cogs"></i> Skills</h2>
-                <ul class="skills-list">
-                    <li>
-                        <strong>Software</strong>
-                        <ul>
-                            <li>Proficient: MS Office, XMind</li>
-                            <li>Intermediate: WordPress, Materialise Magics</li>
-                            <li>Basic: SIMULIA, SolidWorks, CSViewer</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <strong>Programming</strong>
-                        <ul>
-                            <li>Python (Intermediate)</li>
-                            <li>Assembly (Intermediate)</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+        <div class="social-links">
+             <a href="https://linkedin.com/in/abolfazl" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+             <a href="mailto:arzandi_abolfazl@metaleng.iust.ac.ir" title="Email"><i class="fa-solid fa-envelope"></i></a>
+             <a href="https://blog.abolfazlarzandi.ir" target="_blank" rel="noopener" title="Blog"><i class="fa-solid fa-blog"></i></a>
+             <a href="tel:+989223489668" title="Call"><i class="fa-solid fa-phone"></i></a>
+        </div>
+        
+        <a href="#about" class="scroll-down">Scroll Down <i class="fa-solid fa-chevron-down"></i></a>
+    </header>
 
-            <div class="sidebar-section">
-                <h2><i class="fa-solid fa-language"></i> Languages</h2>
-                <ul class="languages-list">
-                    <li><strong>Persian:</strong> Native</li>
-                    <li><strong>English:</strong> B1 (Intermediate)</li>
-                </ul>
-            </div>
 
-        </aside>
+    <!-- ==================== RESTYLED CV CONTENT ==================== -->
+    <main class="cv-content">
+        <section class="main-section" id="about">
+            <h2><i class="fa-solid fa-user"></i> About Me</h2>
+            <p><strong>My journey into Materials Engineering, initially an unforeseen academic turn at Iran University of Science and Technology, has profoundly shaped my scientific identity.</strong> What began as a mere choice progressively evolved into a profound passion. Now, with a solid foundation and heightened motivation, I am eager to transcend theoretical knowledge and actively contribute to cutting-edge research.</p>
+        </section>
 
-        <!-- ===== MAIN CONTENT ===== -->
-        <main class="main-content">
-            <section class="main-section" id="profile">
-                <h2><i class="fa-solid fa-user"></i> Profile</h2>
-                <p><strong>My Vision & Purpose in Materials Engineering</strong></p>
-                <p>My journey into Materials Engineering, initially an unforeseen academic turn at Iran University of Science and Technology, has profoundly shaped my scientific identity. What began as a mere choice progressively evolved into a profound passion. Now, with a solid foundation and heightened motivation, I am eager to transcend theoretical knowledge and actively contribute to cutting-edge research.</p>
-            </section>
-
-            <section class="main-section" id="experience">
-                <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
+        <section class="main-section" id="experience">
+            <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
+            <div class="timeline">
                 <div class="timeline-item">
                     <h3>Technical Support Intern</h3>
                     <p class="item-meta">Shatel Group</p>
@@ -285,18 +471,60 @@
                         <li>Collaborated with senior teams to resolve complex problems.</li>
                     </ul>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="main-section" id="education">
-                <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+        <section class="main-section" id="education">
+            <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+            <div class="timeline">
                 <div class="timeline-item">
                     <h3>B.Sc. in Materials and Metallurgy Engineering</h3>
-                    <p class="item-meta">Iran University of Science and Technology (IUST)</p>
-                    <p>Expected Graduation: May 2027 | Current GPA: 2.96 / 4.00</p>
+                    <p class="item-meta">Iran University of Science and Technology (IUST) | Expected: May 2027</p>
+                    <p>Current GPA: 2.96 / 4.00</p>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
+        
+        <section class="main-section" id="skills">
+            <h2><i class="fa-solid fa-cogs"></i> Skills & Proficiencies</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Software</h3>
+                    <ul>
+                        <li><strong>Proficient:</strong> MS Office, XMind</li>
+                        <li><strong>Intermediate:</strong> WordPress, Materialise Magics</li>
+                        <li><strong>Basic:</strong> SIMULIA, SolidWorks, CSViewer</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <ul>
+                         <li>Python (Intermediate)</li>
+                         <li>Assembly (Intermediate)</li>
+                    </ul>
+                </div>
+                 <div class="skill-category">
+                    <h3>Languages</h3>
+                     <ul>
+                        <li><strong>Persian:</strong> Native</li>
+                        <li><strong>English:</strong> B1 (Intermediate)</li>
+                     </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER / CONTACT ==================== -->
+    <footer id="contact">
+         <h2>Get In Touch</h2>
+         <ul class="footer-contact-list">
+             <li><a href="mailto:arzandi_abolfazl@metaleng.iust.ac.ir" title="Email"><i class="fa-solid fa-envelope"></i><span>arzandi_abolfazl@metaleng.iust.ac.ir</span></a></li>
+             <li><a href="tel:+989223489668" title="Call"><i class="fa-solid fa-phone"></i><span>+98 922 348 9668</span></a></li>
+             <li><a href="https://linkedin.com/in/abolfazl" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i><span>linkedin.com/in/abolfazl</span></a></li>
+             <li><a href="https://blog.abolfazlarzandi.ir" target="_blank" rel="noopener" title="Blog"><i class="fa-solid fa-blog"></i><span>blog.abolfazlarzandi.ir</span></a></li>
+         </ul>
+    </footer>
 
 </body>
 </html>

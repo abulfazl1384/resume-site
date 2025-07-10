@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abolfazl Arzandi | Portfolio</title>
+    <title>Abolfazl Arzandi</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
             --heading-color: #ffffff;
             --accent-color: #7aa2f7; /* A bright, friendly blue */
             --accent-color-hover: #a9b1d6;
-            --overlay-color: rgba(26, 27, 38, 0.75); /* Overlay to darken the background image */
+            --overlay-color: rgba(26, 27, 38, 0.6); /* Slightly more transparent overlay to show off the bg */
         }
 
         * {
@@ -52,9 +52,8 @@
             position: relative;
             overflow: hidden;
 
-            /* --- BACKGROUND IMAGE --- */
-            /* --- REPLACE THE URL with your desired background image! --- */
-            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            /* --- BACKGROUND IMAGE (UPDATED) --- */
+            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url('https://i.imgur.com/N6vO3bA.jpeg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed; /* Creates a parallax-like effect */
@@ -78,7 +77,6 @@
             display: inline-block;
         }
         
-        /* The little red line from the example */
         .hero p.intro-line::before {
             content: '';
             position: absolute;

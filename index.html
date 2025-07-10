@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ابوالفضل آرزندی | Abolfazl Arzandi</title>
+    <title>Abolfazl Arzandi | Digital Portfolio</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
         /* --- TOKYO NIGHT THEME --- */
         :root {
-            --font-fa: 'Vazirmatn', sans-serif;
             --font-en: 'Inter', sans-serif;
             
             --bg: #1a1b26;
@@ -32,11 +31,9 @@
             padding: 0;
             background-color: var(--bg);
             color: var(--text-primary);
+            font-family: var(--font-en);
             padding-bottom: 5rem;
-            transition: background-color 0.4s ease;
         }
-        html[lang="fa"] { font-family: var(--font-fa); }
-        html[lang="en"] { font-family: var(--font-en); }
 
         #tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
@@ -48,11 +45,6 @@
             flex-direction: column;
             gap: 2rem;
         }
-
-        /* --- LANGUAGE VISIBILITY CONTROL --- */
-        html[lang="fa"] [lang="en"] { display: none; }
-        html[lang="en"] [lang="fa"] { display: none; }
-        html[lang="en"] [lang="en"] { display: inline; }
 
         /* --- TYPOGRAPHY --- */
         h1, h2, h3 { font-weight: 700; color: var(--heading); }
@@ -66,9 +58,7 @@
         }
         h3 { font-size: 1.1rem; margin: 1rem 0 0.5rem 0; color: var(--accent); }
         p, li { line-height: 1.8; font-size: 1rem; color: var(--text-secondary); }
-        ul { margin: 0; padding: 0; list-style-position: inside; }
-        html[lang="fa"] ul { padding-right: 20px; list-style-type: '» '; }
-        html[lang="en"] ul { padding-left: 20px; list-style-type: '» '; }
+        ul { margin: 0; padding: 0 0 0 20px; list-style-type: '» '; }
         strong { color: var(--heading); font-weight: 600; }
 
         /* --- CARD COMPONENT --- */
@@ -79,10 +69,8 @@
             -webkit-backdrop-filter: blur(10px);
             border-radius: 12px;
             padding: 2rem;
-            opacity: 1;
-            transition: transform 0.3s ease, border-color 0.3s ease, opacity 0.3s ease-in-out;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .card.fading { opacity: 0; }
         .card:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
@@ -91,24 +79,6 @@
         /* --- SPECIFIC LAYOUTS --- */
         .grid-container, .skills-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
         @media (min-width: 768px) { .grid-container, .skills-grid { grid-template-columns: 1fr 1fr; } }
-
-        /* --- LANGUAGE TOGGLE --- */
-        #lang-toggle {
-            position: fixed; top: 20px; z-index: 100;
-            background-color: var(--surface); color: var(--heading);
-            border: 1px solid var(--border); border-radius: 8px;
-            width: 48px; height: 48px; cursor: pointer;
-            font-size: 1rem; font-weight: 700; font-family: var(--font-en);
-            display: flex; justify-content: center; align-items: center;
-            transition: all 0.3s ease;
-        }
-        #lang-toggle:hover {
-            transform: scale(1.1);
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        html[lang="fa"] #lang-toggle { right: 20px; left: auto; }
-        html[lang="en"] #lang-toggle { left: 20px; right: auto; }
 
         /* --- FOOTER --- */
         footer { padding: 2rem 1.5rem; text-align: center; }
@@ -120,59 +90,33 @@
 </head>
 <body>
     <div id="tsparticles"></div>
-
-    <button id="lang-toggle" title="Change Language"></button>
     
     <main>
         <!-- Intro Section -->
         <section class="card" id="intro">
-            <h1>
-                <span lang="fa">ابوالفضل آرزندی</span>
-                <span lang="en">Abolfazl Arzandi</span>
-            </h1>
-            <p class="tagline">
-                <span lang="fa">چشم‌انداز و هدف من در مهندسی مواد</span>
-                <span lang="en">My Vision & Purpose in Materials Engineering</span>
-            </p>
-            <p>
-                <span lang="fa">سفر من به دنیای مهندسی مواد، که در ابتدا یک انتخاب غیرمنتظره در دانشگاه علم و صنعت ایران بود، هویت علمی مرا عمیقاً شکل داد. آنچه به عنوان یک انتخاب ساده آغاز شد، به تدریج به یک اشتیاق عمیق تبدیل شد. اکنون با پایه‌ای محکم و انگیزه‌ای مضاعف، مشتاقم تا از دانش نظری فراتر رفته و فعالانه در تحقیقات پیشرفته مشارکت کنم.</span>
-                <span lang="en">My journey into Materials Engineering, initially an unforeseen academic turn at Iran University of Science and Technology, has profoundly shaped my scientific identity. What began as a mere choice progressively evolved into a profound passion. Now, with a solid foundation and heightened motivation, I am eager to transcend theoretical knowledge and actively contribute to cutting-edge research.</span>
-            </p>
+            <h1>Abolfazl Arzandi</h1>
+            <p class="tagline">My Vision & Purpose in Materials Engineering</p>
+            <p>My journey into Materials Engineering, initially an unforeseen academic turn at Iran University of Science and Technology, has profoundly shaped my scientific identity. What began as a mere choice progressively evolved into a profound passion. Now, with a solid foundation and heightened motivation, I am eager to transcend theoretical knowledge and actively contribute to cutting-edge research.</p>
         </section>
 
         <!-- Experience & Education Section -->
         <section class="card" id="cv">
             <div class="grid-container">
                 <div class="grid-item">
-                    <h2>
-                        <span lang="fa">تجربه کاری</span>
-                        <span lang="en">Experience</span>
-                    </h2>
-                    <h3>Shatel Group — <i>
-                        <span lang="fa">کارآموز پشتیبانی فنی</span>
-                        <span lang="en">Technical Support Intern</span>
-                    </i></h3>
+                    <h2>Experience</h2>
+                    <h3>Shatel Group — <i>Technical Support Intern</i></h3>
                     <ul>
-                        <li><span lang="fa">ارائه پشتیبانی فنی سطح ۱ برای خدمات اینترنت پرسرعت.</span><span lang="en">Provided Level 1 technical support for high-speed internet services.</span></li>
-                        <li><span lang="fa">عیب‌یابی و حل مشکلات رایج اتصال و پیکربندی مودم.</span><span lang="en">Troubleshot common connectivity issues and modem configurations.</span></li>
-                        <li><span lang="fa">همکاری با تیم‌های فنی برای حل مشکلات پیچیده.</span><span lang="en">Collaborated with senior teams to resolve complex problems.</span></li>
+                        <li>Provided Level 1 technical support for high-speed internet services.</li>
+                        <li>Troubleshot common connectivity issues and modem configurations.</li>
+                        <li>Collaborated with senior teams to resolve complex problems.</li>
                     </ul>
                 </div>
                 <div class="grid-item">
-                    <h2>
-                        <span lang="fa">تحصیلات</span>
-                        <span lang="en">Education</span>
-                    </h2>
-                    <h3>
-                        <span lang="fa">دانشگاه علم و صنعت ایران (IUST)</span>
-                        <span lang="en">Iran University of Science and Technology (IUST)</span>
-                    </h3>
+                    <h2>Education</h2>
+                    <h3>Iran University of Science and Technology (IUST)</h3>
                     <p>
-                        <i><span lang="fa">کارشناسی مهندسی مواد و متالورژی</span>
-                        <span lang="en">B.Sc. in Materials and Metallurgy Engineering</span></i>
-                        <br>
-                        <span lang="fa">تاریخ فارغ‌التحصیلی: خرداد ۱۴۰۶ | معدل: ۱۶ / ۲۰</span>
-                        <span lang="en">Expected May 2027 | GPA: 2.96 / 4.00</span>
+                        <i>B.Sc. in Materials and Metallurgy Engineering</i><br>
+                        Expected May 2027 | GPA: 2.96 / 4.00
                     </p>
                 </div>
             </div>
@@ -180,16 +124,10 @@
 
         <!-- Skills Section -->
         <section class="card" id="skills">
-            <h2>
-                <span lang="fa">مهارت‌ها</span>
-                <span lang="en">Skills</span>
-            </h2>
+            <h2>Skills</h2>
             <div class="skills-grid">
                 <div>
-                    <h3>
-                        <span lang="fa">نرم‌افزار</span>
-                        <span lang="en">Software</span>
-                    </h3>
+                    <h3>Software</h3>
                     <ul>
                         <li><strong>Proficient:</strong> Microsoft Office Suite, XMind</li>
                         <li><strong>Intermediate:</strong> WordPress, Materialise Magics</li>
@@ -197,13 +135,10 @@
                     </ul>
                 </div>
                 <div>
-                    <h3>
-                        <span lang="fa">برنامه‌نویسی و زبان</span>
-                        <span lang="en">Code & Language</span>
-                    </h3>
+                    <h3>Code & Language</h3>
                     <ul>
                         <li><strong>Programming:</strong> Python, Assembly (Intermediate)</li>
-                        <li><strong>Languages:</strong> <span lang="fa">فارسی (بومی)، انگلیسی (B1)</span><span lang="en">Persian (Native), English (B1)</span></li>
+                        <li><strong>Languages:</strong> Persian (Native), English (B1)</li>
                     </ul>
                 </div>
             </div>
@@ -237,33 +172,6 @@
                 interactivity: { events: { onHover: { enable: true, mode: "grab" } } },
                 detectRetina: true,
             });
-
-            // --- Language Toggling Logic ---
-            const langToggleBtn = document.getElementById('lang-toggle');
-            const htmlEl = document.documentElement;
-            const cards = document.querySelectorAll('.card');
-
-            function applyLanguage(lang) {
-                htmlEl.lang = lang;
-                htmlEl.dir = lang === 'fa' ? 'rtl' : 'ltr';
-                langToggleBtn.textContent = lang === 'fa' ? 'EN' : 'FA';
-                localStorage.setItem('portfolio-lang', lang);
-            }
-
-            langToggleBtn.addEventListener('click', () => {
-                const newLang = htmlEl.lang === 'fa' ? 'en' : 'fa';
-                
-                cards.forEach(card => card.classList.add('fading'));
-
-                setTimeout(() => {
-                    applyLanguage(newLang);
-                    cards.forEach(card => card.classList.remove('fading'));
-                }, 300);
-            });
-
-            // --- Initial Language Setup ---
-            const initialLang = localStorage.getItem('portfolio-lang') || 'fa';
-            applyLanguage(initialLang);
         });
     </script>
 </body>

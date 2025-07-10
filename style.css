@@ -38,9 +38,7 @@ main {
 }
 
 /* --- LANGUAGE VISIBILITY CONTROL --- */
-/* By default, show Farsi and hide English */
 html[lang="fa"] span[lang="en"] { display: none; }
-/* When English is active, hide Farsi and show English */
 html[lang="en"] span[lang="fa"] { display: none; }
 html[lang="en"] span[lang="en"] { display: inline; }
 
@@ -84,7 +82,7 @@ strong { color: var(--heading-dark); font-weight: 600; }
 
 /* --- LANGUAGE TOGGLE --- */
 #lang-toggle {
-    position: fixed; top: 20px; left: 20px; z-index: 100;
+    position: fixed; top: 20px; z-index: 100;
     background: transparent; color: var(--heading-dark);
     border: 2px solid var(--border-dark); border-radius: 8px;
     width: 48px; height: 48px; cursor: pointer;
@@ -94,6 +92,7 @@ strong { color: var(--heading-dark); font-weight: 600; }
 }
 #lang-toggle:hover { transform: scale(1.1); border-color: var(--accent-dark); color: var(--accent-dark); }
 html[lang="fa"] #lang-toggle { right: 20px; left: auto; }
+html[lang="en"] #lang-toggle { left: 20px; right: auto; }
 
 /* --- FOOTER --- */
 footer { padding: 2rem 1.5rem; text-align: center; }

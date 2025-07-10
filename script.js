@@ -30,18 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
     langToggleBtn.addEventListener('click', () => {
         const newLang = htmlEl.lang === 'fa' ? 'en' : 'fa';
         
-        // 1. Add fade-out class to all cards
         cards.forEach(card => card.classList.add('fading'));
 
-        // 2. After animation, switch language and fade back in
         setTimeout(() => {
             applyLanguage(newLang);
             cards.forEach(card => card.classList.remove('fading'));
-        }, 300); // Must match transition duration in CSS
+        }, 300);
     });
 
     // --- Initial Language Setup ---
-    // Get language from storage or default to Farsi
     const initialLang = localStorage.getItem('portfolio-lang') || 'fa';
     applyLanguage(initialLang);
 });

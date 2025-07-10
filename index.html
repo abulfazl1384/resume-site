@@ -3,13 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ابوالفضل ارژندی | Abolfazl Arzandi</title>
+    <title>ابوالفضل آرزندی | Abolfazl Arzandi</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- TOKYO NIGHT THEME --- */
+        :root {
+            --font-fa: 'Vazirmatn', sans-serif;
+            --font-en: 'Inter', sans-serif;
+            
+            --bg: #1a1b26;
+            --surface: #24283b;
+            --overlay: rgba(36, 40, 59, 0.7);
+            --text-primary: #c0caf5;
+            --text-secondary: #a9b1d6;
+            --heading: #c0caf5;
+            --accent: #7aa2f7;
+            --border: #414868;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            padding-bottom: 5rem;
+            transition: background-color 0.4s ease;
+        }
+        html[lang="fa"] { font-family: var(--font-fa); }
+        html[lang="en"] { font-family: var(--font-en); }
+
+        #tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 1.5rem 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* --- LANGUAGE VISIBILITY CONTROL --- */
+        html[lang="fa"] [lang="en"] { display: none; }
+        html[lang="en"] [lang="fa"] { display: none; }
+        html[lang="en"] [lang="en"] { display: inline; }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 { font-weight: 700; color: var(--heading); }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .tagline { font-size: 1.2rem; color: var(--accent); margin: 0 0 1.5rem 0; font-weight: 500; }
+        h2 {
+            font-size: 1.5rem;
+            padding-bottom: 0.75rem;
+            margin: 0 0 1.5rem 0;
+            border-bottom: 2px solid var(--border);
+        }
+        h3 { font-size: 1.1rem; margin: 1rem 0 0.5rem 0; color: var(--accent); }
+        p, li { line-height: 1.8; font-size: 1rem; color: var(--text-secondary); }
+        ul { margin: 0; padding: 0; list-style-position: inside; }
+        html[lang="fa"] ul { padding-right: 20px; list-style-type: '» '; }
+        html[lang="en"] ul { padding-left: 20px; list-style-type: '» '; }
+        strong { color: var(--heading); font-weight: 600; }
+
+        /* --- CARD COMPONENT --- */
+        .card {
+            background-color: var(--overlay);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            opacity: 1;
+            transition: transform 0.3s ease, border-color 0.3s ease, opacity 0.3s ease-in-out;
+        }
+        .card.fading { opacity: 0; }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        /* --- SPECIFIC LAYOUTS --- */
+        .grid-container, .skills-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        @media (min-width: 768px) { .grid-container, .skills-grid { grid-template-columns: 1fr 1fr; } }
+
+        /* --- LANGUAGE TOGGLE --- */
+        #lang-toggle {
+            position: fixed; top: 20px; z-index: 100;
+            background-color: var(--surface); color: var(--heading);
+            border: 1px solid var(--border); border-radius: 8px;
+            width: 48px; height: 48px; cursor: pointer;
+            font-size: 1rem; font-weight: 700; font-family: var(--font-en);
+            display: flex; justify-content: center; align-items: center;
+            transition: all 0.3s ease;
+        }
+        #lang-toggle:hover {
+            transform: scale(1.1);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        html[lang="fa"] #lang-toggle { right: 20px; left: auto; }
+        html[lang="en"] #lang-toggle { left: 20px; right: auto; }
+
+        /* --- FOOTER --- */
+        footer { padding: 2rem 1.5rem; text-align: center; }
+        .footer-links { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+        .footer-link { color: var(--text-secondary); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s ease; }
+        .footer-link:hover { color: var(--accent); }
+        .footer-link svg { width: 24px; height: 24px; fill: currentColor; }
+    </style>
 </head>
 <body>
     <div id="tsparticles"></div>
@@ -20,7 +127,7 @@
         <!-- Intro Section -->
         <section class="card" id="intro">
             <h1>
-                <span lang="fa">ابوالفضل ارژندی</span>
+                <span lang="fa">ابوالفضل آرزندی</span>
                 <span lang="en">Abolfazl Arzandi</span>
             </h1>
             <p class="tagline">
@@ -33,22 +140,6 @@
             </p>
         </section>
 
-        <!-- Purpose Section -->
-        <section class="card" id="purpose">
-             <h2>
-                <span lang="fa">حوزه تحقیقاتی و اهداف</span>
-                <span lang="en">Research Area & Goals</span>
-            </h2>
-             <p>
-                <span lang="fa">علاقه اصلی من در حوزه مواد پیشرفته تابعی و کاربرد آن‌ها در انرژی پایدار و الکترونیک است. این علاقه در طول دوره‌های تحصیلی‌ام، که نقش حیاتی طراحی مواد در حل چالش‌های جهانی انرژی را روشن کرد، به طور قابل توجهی تقویت شد.</span>
-                <span lang="en">My primary research interest lies in advanced functional materials and their application in sustainable energy and electronics. This interest was significantly solidified during my coursework, which illuminated the critical role of material design in solving global energy challenges.</span>
-             </p>
-             <p>
-                <span lang="fa">آرزوی بلندمدت من این است که به یک محقق برجسته در مهندسی مواد تبدیل شوم و راه‌حل‌های نوآورانه‌ای برای چالش‌های جهانی ارائه دهم. مشتاقم در یک محیط پویا رشد کنم، با ذهن‌های برجسته همکاری کنم و به پیشرفت دانش در این زمینه حیاتی کمک کنم.</span>
-                <span lang="en">My long-term aspiration is to become a leading researcher in Materials Engineering, developing novel solutions for global challenges. I am eager to grow within a dynamic environment, collaborate with leading minds, and contribute to advancing knowledge in this vital field.</span>
-            </p>
-        </section>
-        
         <!-- Experience & Education Section -->
         <section class="card" id="cv">
             <div class="grid-container">
@@ -123,12 +214,57 @@
         <div class="footer-links">
              <a href="mailto:arzandi_abolfazl@metaleng.iust.ac.ir" class="footer-link" title="Email"><svg viewBox="0 0 24 24"><path d="M20,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M20,8l-8,5L4,8V6l8,5l8-5V8z"/></svg><span>Email</span></a>
              <a href="tel:+989223489668" class="footer-link" title="Call"><svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/></svg><span>Call</span></a>
-             <a href="https://linkedin.com/in/abulfazl" target="_blank" rel="noopener" class="footer-link" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19,3H5C3.89,3 3,3.89 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.89 20.1,3 19,3M8.5,18H5.5V10H8.5V18M7,8.5C6.17,8.5 5.5,7.83 5.5,7C5.5,6.17 6.17,5.5 7,5.5C7.83,5.5 8.5,6.17 8.5,7C8.5,7.83 7.83,8.5 7,8.5M18,18H15V13.5C15,12.57 14.53,12 13.5,12C12.5,12 12,12.62 12,13.5V18H9V10H12V11.25C12.44,10.42 13.43,10 14.5,10C16.5,10 18,11.25 18,13.25V18Z"/></svg><span>LinkedIn</span></a>
+             <a href="https://linkedin.com/in/abolfazl" target="_blank" rel="noopener" class="footer-link" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19,3H5C3.89,3 3,3.89 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.89 20.1,3 19,3M8.5,18H5.5V10H8.5V18M7,8.5C6.17,8.5 5.5,7.83 5.5,7C5.5,6.17 6.17,5.5 7,5.5C7.83,5.5 8.5,6.17 8.5,7C8.5,7.83 7.83,8.5 7,8.5M18,18H15V13.5C15,12.57 14.53,12 13.5,12C12.5,12 12,12.62 12,13.5V18H9V10H12V11.25C12.44,10.42 13.43,10 14.5,10C16.5,10 18,11.25 18,13.25V18Z"/></svg><span>LinkedIn</span></a>
              <a href="https://blog.abolfazlarzandi.ir" target="_blank" rel="noopener" class="footer-link" title="Blog"><svg viewBox="0 0 24 24"><path d="M4 6H20V8H4V6M4 11H20V13H4V11M4 16H20V18H4V16Z"/></svg><span>Blog</span></a>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- tsParticles Configuration ---
+            tsParticles.load("tsparticles", {
+                fpsLimit: 60,
+                background: { color: "transparent" },
+                particles: {
+                    number: { value: 50, density: { enable: true, value_area: 800 } },
+                    color: { value: "#414868" }, // Particle color from theme
+                    opacity: { value: 0.5, random: true },
+                    size: { value: 1.5, random: true },
+                    links: { enable: true, distance: 150, color: "#414868", opacity: 0.4, width: 1 },
+                    move: { enable: true, speed: 1, direction: "none", outModes: { default: "out" } }
+                },
+                interactivity: { events: { onHover: { enable: true, mode: "grab" } } },
+                detectRetina: true,
+            });
+
+            // --- Language Toggling Logic ---
+            const langToggleBtn = document.getElementById('lang-toggle');
+            const htmlEl = document.documentElement;
+            const cards = document.querySelectorAll('.card');
+
+            function applyLanguage(lang) {
+                htmlEl.lang = lang;
+                htmlEl.dir = lang === 'fa' ? 'rtl' : 'ltr';
+                langToggleBtn.textContent = lang === 'fa' ? 'EN' : 'FA';
+                localStorage.setItem('portfolio-lang', lang);
+            }
+
+            langToggleBtn.addEventListener('click', () => {
+                const newLang = htmlEl.lang === 'fa' ? 'en' : 'fa';
+                
+                cards.forEach(card => card.classList.add('fading'));
+
+                setTimeout(() => {
+                    applyLanguage(newLang);
+                    cards.forEach(card => card.classList.remove('fading'));
+                }, 300);
+            });
+
+            // --- Initial Language Setup ---
+            const initialLang = localStorage.getItem('portfolio-lang') || 'fa';
+            applyLanguage(initialLang);
+        });
+    </script>
 </body>
 </html>

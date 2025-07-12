@@ -3,527 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abolfazl Arzandi</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <title>Abolfazl Arzandi - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --primary-bg-color: #1a1b26; /* A very dark, slightly blue black */
-            --secondary-bg-color: #24283b; /* A lighter dark blue for content sections */
-            --text-color: #c0caf5; /* A light, soft blue-white for text */
-            --heading-color: #ffffff;
-            --accent-color: #7aa2f7; /* A bright, friendly blue */
-            --accent-color-hover: #a9b1d6;
-            --overlay-color: rgba(26, 27, 38, 0.75); /* Overlay to darken the background image */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--primary-bg-color);
-            color: var(--text-color);
-            line-height: 1.7;
+            background: linear-gradient(180deg, #0a0e17 0%, #1e252f 100%);
+            color: #d1d5db;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
-
-        /* --- HERO SECTION (The main landing screen) --- */
-        .hero {
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
             height: 100vh;
-            width: 100%;
+            width: 80px;
+            background: #0a0e17;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-
-            /* --- BACKGROUND IMAGE --- */
-            /* --- REPLACE THE URL with your desired background image! --- */
-            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Creates a parallax-like effect */
+            padding-top: 20px;
+            z-index: 100;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
         }
-        
-        .hero-content {
-            max-width: 960px;
-            width: 90%;
-            z-index: 2;
-            position: relative;
+        .sidebar a {
+            color: #22d3ee;
+            margin: 25px 0;
+            transition: transform 0.3s ease, color 0.3s ease, filter 0.3s ease;
         }
-
-        .hero p.intro-line {
-            color: var(--accent-color);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
+        .sidebar a:hover {
+            transform: scale(1.4);
+            color: #a5b4fc;
+            filter: drop-shadow(0 0 8px #22d3ee);
+            animation: pulse 1.5s infinite;
         }
-        
-        /* The little red line from the example */
-        .hero p.intro-line::before {
+        @keyframes pulse {
+            0% { transform: scale(1.4); }
+            50% { transform: scale(1.6); }
+            100% { transform: scale(1.4); }
+        }
+        .content {
+            margin-left: 80px;
+            padding: 40px;
+        }
+        .section {
+            position: relative;
+            width: 100%;
+            min-height: 300px;
+            margin-bottom: 60px;
+            padding: 20px;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .section::before {
             content: '';
-            position: absolute;
-            left: -25px;
-            top: 50%;
-            width: 20px;
-            height: 2px;
-            background-color: var(--accent-color);
-            transform: translateY(-50%);
-        }
-
-        .hero h1 {
-            color: var(--heading-color);
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1px;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            color: var(--primary-bg-color);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-color-hover);
-        }
-
-        .btn-secondary {
-            border: 2px solid var(--accent-color);
-            color: var(--heading-color);
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--accent-color);
-            color: var(--primary-bg-color);
-        }
-
-
-        /* --- TOP NAVIGATION & SIDE LINKS --- */
-        nav {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 3rem;
-            z-index: 10;
+            height: 100%;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.2) 0%, transparent 70%);
+            animation: shimmer 4s infinite ease-in-out;
+            z-index: -1;
         }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--heading-color);
-            text-decoration: none;
+        @keyframes shimmer {
+            0% { transform: translateX(-5%) scale(1); opacity: 0.3; }
+            50% { transform: translateX(5%) scale(1.05); opacity: 0.5; }
+            100% { transform: translateX(-5%) scale(1); opacity: 0.3; }
         }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
+        .typewriter h1 {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+            border-right: 3px solid #22d3ee;
+            text-shadow: 0 0 10px #22d3ee;
         }
-
-        .nav-links a {
-            color: var(--heading-color);
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
         }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #22d3ee; }
         }
-
-        .social-links {
-            position: absolute;
-            right: 3rem;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            z-index: 10;
-        }
-
-        .social-links a {
-            color: var(--heading-color);
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* --- SCROLL INDICATOR --- */
-        .scroll-down {
-            position: absolute;
-            bottom: 2rem;
-            left: 3rem;
-            z-index: 10;
-            color: var(--heading-color);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-        }
-
-        .scroll-down i {
-            margin-left: 0.5rem;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-8px);
-            }
-            60% {
-                transform: translateY(-4px);
-            }
-        }
-
-
-        /* --- RESTYLED CV CONTENT AREA --- */
-        .cv-content {
-            padding: 6rem 2rem;
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        .main-section {
-            margin-bottom: 5rem;
-        }
-
-        .main-section h2 {
-            font-size: 2.5rem;
-            color: var(--heading-color);
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .main-section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-color);
-        }
-
-        /* --- Profile/About section --- */
-        #about p {
-            font-size: 1.1rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* --- Timeline (Experience & Education) --- */
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-left: 2px solid #33374f; /* The timeline vertical line */
-        }
-        
-        .timeline-item:last-child {
-             border-left: 2px solid transparent;
-        }
-
-        /* The timeline circle */
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -9px; /* Adjust to center on the line */
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            border: 2px solid var(--primary-bg-color);
-        }
-
-        .timeline-item h3 {
-            font-size: 1.3rem;
-            color: var(--accent-color);
-            margin-bottom: 0.2rem;
-        }
-        
-        .item-meta {
-            font-style: italic;
-            color: var(--accent-color-hover);
-            margin-bottom: 0.75rem;
-            font-size: 0.9rem;
-        }
-        
-        .timeline-item ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .timeline-item ul li {
-             margin-bottom: 0.5rem;
-             position: relative;
-             padding-left: 1.2rem;
-        }
-        
-        .timeline-item ul li::before{
-            content: '»';
-            position: absolute;
+        .bg-photo {
+            position: fixed;
+            top: 0;
             left: 0;
-            color: var(--accent-color);
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: url('photo.jpg') center/cover no-repeat;
+            opacity: 0.15; /* Subtle visibility */
         }
-
-        /* --- Skills and Languages --- */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: none; /* Adjusted to layer over photo */
+            opacity: 0.4;
+            animation: fade 8s infinite alternate;
         }
-        
-        .skill-category h3 {
-            font-size: 1.4rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
+        @keyframes fade {
+            0% { opacity: 0.4; }
+            100% { opacity: 0.6; }
         }
-        
-        .skills-container ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .skills-container li {
-            background-color: var(--secondary-bg-color);
-            padding: 0.5rem;
-            border-radius: 5px;
-            margin-bottom: 0.5rem;
-            transition: transform 0.2s ease;
-        }
-
-        .skills-container li:hover {
-            transform: scale(1.05);
-        }
-
-        .skills-container strong {
-            font-weight: 700;
-            color: var(--heading-color);
-        }
-
-
-        /* --- Contact Footer --- */
-        footer {
-            text-align: center;
-            padding: 4rem 2rem 2rem;
-            background-color: var(--secondary-bg-color);
-        }
-        footer h2 {
-            margin-bottom: 2rem;
-        }
-        .footer-contact-list {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-
-        .footer-contact-list a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .footer-contact-list a:hover {
-            color: var(--accent-color);
-        }
-        
-        .footer-contact-list i {
-            margin-right: 0.5rem;
-            color: var(--accent-color);
-        }
-
-        /* --- RESPONSIVE DESIGN --- */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 1rem;
-                gap: 1rem;
+        @media (max-width: 640px) {
+            .sidebar {
+                width: 60px;
+                padding-top: 10px;
             }
-            .social-links { display: none; } /* Hide on mobile for cleaner look */
-            .scroll-down { left: 1.5rem; }
-
-            .hero h1 { font-size: 2.5rem; }
-            .hero-content {
-                width: 90%;
-                text-align: center;
+            .content {
+                margin-left: 60px;
+                padding: 20px;
             }
-            .hero p.intro-line::before { display: none; }
-            .hero-buttons { justify-content: center; }
-
-            .cv-content { padding: 4rem 1rem; }
-            .main-section h2 { font-size: 2rem; }
         }
-
     </style>
 </head>
 <body>
+    <!-- Background Photo Layer -->
+    <div class="bg-photo"></div>
 
-    <!-- ==================== HERO SECTION ==================== -->
-    <header class="hero">
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <!-- Animated Background Overlay -->
+    <div class="bg-overlay"></div>
 
-        <div class="hero-content">
-            <p class="intro-line">Hello There</p>
-            <h1>I am Abolfazl Arzandi. <br> A Materials Science and Engineering Student.</h1>
-            <div class="hero-buttons">
-                <a href="#experience" class="btn btn-primary">My Experience</a>
-                <a href="#about" class="btn btn-secondary">More About Me</a>
-            </div>
-        </div>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <a href="#hero" title="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.099l9.9 9.9H19v9.9H5v-9.9H2.1L12 2.099z"/>
+            </svg>
+        </a>
+        <a href="#about" title="About">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+        </a>
+        <a href="#experience" title="Experience">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 6h-3V4c0-1.11-.89-2-2-2H9c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zM9 4h6v2H9V4zm11 15H4v-2h16v2zm0-5H4V8h3v2h2V8h6v2h2V8h3v6z"/>
+            </svg>
+        </a>
+        <a href="#education" title="Education">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+            </svg>
+        </a>
+        <a href="#skills" title="Skills">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.30-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+            </svg>
+        </a>
+        <a href="#contact" title="Contact">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+        </a>
+    </nav>
 
-        <div class="social-links">
-             <a href="https://linkedin.com/in/abolfazl" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-             <a href="mailto:arzandi_abolfazl@metaleng.iust.ac.ir" title="Email"><i class="fa-solid fa-envelope"></i></a>
-             <a href="https://blog.abolfazlarzandi.ir" target="_blank" rel="noopener" title="Blog"><i class="fa-solid fa-blog"></i></a>
-             <a href="tel:+989223489668" title="Call"><i class="fa-solid fa-phone"></i></a>
-        </div>
-        
-        <a href="#about" class="scroll-down">Scroll Down <i class="fa-solid fa-chevron-down"></i></a>
-    </header>
-
-
-    <!-- ==================== RESTYLED CV CONTENT ==================== -->
-    <main class="cv-content">
-        <section class="main-section" id="about">
-            <h2><i class="fa-solid fa-user"></i> About Me</h2>
-            <p><strong>My journey into Materials Engineering, initially an unforeseen academic turn at Iran University of Science and Technology, has profoundly shaped my scientific identity.</strong> What began as a mere choice progressively evolved into a profound passion. Now, with a solid foundation and heightened motivation, I am eager to transcend theoretical knowledge and actively contribute to cutting-edge research.</p>
-        </section>
-
-        <section class="main-section" id="experience">
-            <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Technical Support Intern</h3>
-                    <p class="item-meta">Shatel Group</p>
-                    <ul>
-                        <li>Provided Level 1 technical support for high-speed internet services.</li>
-                        <li>Troubleshot common connectivity issues and modem configurations.</li>
-                        <li>Collaborated with senior teams to resolve complex problems.</li>
-                    </ul>
+    <!-- Content -->
+    <div class="content">
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center">
+            <div class="typewriter">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">Abolfazl Arzandi</h1>
+                <p class="text-xl md:text-2xl text-cyan-400 mb-8">Innovating Materials Science</p>
+                <div class="space-x-4">
+                    <a href="#experience" class="inline-block bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition duration-300">Explore My Work</a>
+                    <a href="#about" class="inline-block bg-indigo-500 text-white px-6 py-3 rounded-full hover:bg-indigo-600 transition duration-300">Discover My Journey</a>
                 </div>
             </div>
         </section>
 
-        <section class="main-section" id="education">
-            <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>B.Sc. in Materials and Metallurgy Engineering</h3>
-                    <p class="item-meta">Iran University of Science and Technology (IUST) | Expected: May 2027</p>
-                    <p>Current GPA: 2.96 / 4.00</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="main-section" id="skills">
-            <h2><i class="fa-solid fa-cogs"></i> Skills & Proficiencies</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Software</h3>
-                    <ul>
-                        <li><strong>Proficient:</strong> MS Office, XMind</li>
-                        <li><strong>Intermediate:</strong> WordPress, Materialise Magics</li>
-                        <li><strong>Basic:</strong> SIMULIA, SolidWorks, CSViewer</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Programming</h3>
-                    <ul>
-                         <li>Python (Intermediate)</li>
-                         <li>Assembly (Intermediate)</li>
-                    </ul>
-                </div>
-                 <div class="skill-category">
-                    <h3>Languages</h3>
-                     <ul>
-                        <li><strong>Persian:</strong> Native</li>
-                        <li><strong>English:</strong> B1 (Intermediate)</li>
-                     </ul>
-                </div>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="p-8">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6">About Me</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    My journey into Materials Engineering at Iran University of Science and Technology was an unexpected spark that ignited a deep passion. From a curious choice, I’ve built a solid foundation, driven to push the boundaries of theoretical knowledge and innovate in cutting-edge materials research.
+                </p>
             </div>
         </section>
 
-    </main>
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="p-8">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6">Experience</h2>
+                <h3 class="text-xl font-semibold text-white">Technical Support Intern</h3>
+                <p class="text-gray-400">Shatel Group</p>
+                <ul class="mt-4 text-gray-300 list-disc list-inside">
+                    <li>Provided Level 1 technical support for high-speed internet services.</li>
+                    <li>Troubleshot common connectivity issues and modem configurations.</li>
+                    <li>Collaborated with senior teams to resolve complex problems.</li>
+                </ul>
+            </div>
+        </section>
 
-    <!-- ==================== FOOTER / CONTACT ==================== -->
-    <footer id="contact">
-         <h2>Get In Touch</h2>
-         <ul class="footer-contact-list">
-             <li><a href="mailto:arzandi_abolfazl@metaleng.iust.ac.ir" title="Email"><i class="fa-solid fa-envelope"></i><span>arzandi_abolfazl@metaleng.iust.ac.ir</span></a></li>
-             <li><a href="tel:+989223489668" title="Call"><i class="fa-solid fa-phone"></i><span>+98 922 348 9668</span></a></li>
-             <li><a href="https://linkedin.com/in/abolfazl" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i><span>linkedin.com/in/abolfazl</span></a></li>
-             <li><a href="https://blog.abolfazlarzandi.ir" target="_blank" rel="noopener" title="Blog"><i class="fa-solid fa-blog"></i><span>blog.abolfazlarzandi.ir</span></a></li>
-         </ul>
-    </footer>
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="p-8">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6">Education</h2>
+                <h3 class="text-xl font-semibold text-white">B.Sc. in Materials and Metallurgy Engineering</h3>
+                <p class="text-gray-400">Iran University of Science and Technology (IUST) | Expected: May 2027</p>
+                <p class="text-gray-300 mt-2">Current GPA: 2.96 / 4.00</p>
+            </div>
+        </section>
 
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="p-8">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6">Skills & Proficiencies</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Software</h3>
+                        <ul class="text-gray-300 list-disc list-inside">
+                            <li>Proficient: MS Office, XMind</li>
+                            <li>Intermediate: WordPress, Materialise Magics</li>
+                            <li>Basic: SIMULIA, SolidWorks, CSViewer</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Programming</h3>
+                        <ul class="text-gray-300 list-disc list-inside">
+                            <li>Python (Intermediate)</li>
+                            <li>Assembly (Intermediate)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Languages</h3>
+                        <ul class="text-gray-300 list-disc list-inside">
+                            <li>Persian: Native</li>
+                            <li>English: B1 (Intermediate)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="p-8">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6">Get In Touch</h2>
+                <p class="text-gray-300">Email: <a href="mailto:arzandi_abolfazl@metaleng.iust.ac.ir" class="text-cyan-400 hover:underline">arzandi_abolfazl@metaleng.iust.ac.ir</a></p>
+                <p class="text-gray-300">Phone: <a href="tel:+989223489668" class="text-cyan-400 hover:underline">+98 922 348 9668</a></p>
+                <p class="text-gray-300">LinkedIn: <a href="https://linkedin.com/in/abolfazl" class="text-cyan-400 hover:underline">linkedin.com/in/abolfazl</a></p>
+                <p class="text-gray-300">Blog: <a href="https://blog.abolfazlarzandi.ir" class="text-cyan-400 hover:underline">blog.abolfazlarzandi.ir</a></p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Animation Script -->
+    <script>
+        window.addEventListener('load', () => {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.classList.add('visible');
+                }, index * 200); // Staggered animation
+            });
+        });
+    </script>
 </body>
 </html>

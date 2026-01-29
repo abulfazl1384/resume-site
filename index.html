@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QF41Q8SBV8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QF41Q8SBV8');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abolfazl Arzandi | Portfolio | Researcher & Engineer</title>
@@ -60,33 +69,12 @@
             background: var(--bg-primary);
             color: #ffffff;
             overflow-x: hidden;
-            cursor: none;
         }
 
         /* Custom Cursor */
-        .cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: var(--primary-glow);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: difference;
-            transition: transform 0.1s ease;
-        }
+        
 
-        .cursor-follower {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border: 2px solid var(--primary-glow);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.3s ease;
-            opacity: 0.5;
-        }
+
 
         /* Glassmorphism Effects */
         .glass {
@@ -493,7 +481,6 @@
 
     <!-- Custom Cursor -->
     <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="cursor-follower"></div>
 
     <!-- Geometric Background -->
     <div class="geometric-bg"></div>
